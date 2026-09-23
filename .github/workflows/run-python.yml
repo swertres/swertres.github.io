@@ -16,22 +16,34 @@ on:
       - main
       - master
   schedule:
-    # Philippine Time schedule (UTC equivalents)
-    - cron: '2 3 * * *'     # 03:02 UTC = 11:02 PH Time
-    - cron: '55 5 * * *'    # 05:55 UTC = 13:55 PH Time
-    - cron: '57 5 * * *'    # 05:57 UTC = 13:57 PH Time
-    - cron: '0 6 * * *'     # 06:00 UTC = 14:00 PH Time
-    - cron: '57 8 * * *'    # 08:57 UTC = 16:57 PH Time
-    - cron: '59 8 * * *'    # 08:59 UTC = 16:57 PH Time
-    - cron: '2 9 * * *'     # 09:02 UTC = 17:02 PH Time
-    - cron: '55 12 * * *'   # 12:55 UTC = 20:55 PH Time
-    - cron: '57 12 * * *'   # 12:57 UTC = 20:57 PH Time
-    - cron: '0 13 * * *'    # 13:00 UTC = 21:00 PH Time
-    - cron: '3 13 * * *'    # 13:03 UTC = 21:03 PH Time
-    - cron: '6 13 * * *'    # 13:06 UTC = 21:06 PH Time
-    - cron: '8 13 * * *'    # 13:08 UTC = 21:08 PH Time
-    - cron: '12 13 * * *'   # 13:12 UTC = 21:12 PH Time
-    - cron: '30 14 * * *'   # 14:30 UTC = 22:30 PH Time
+    # Philippine Time (UTC+8)
+
+    # 2:00 PM – 2:10 PM
+    - cron: '0 6 * * *'    # 14:00 PH
+    - cron: '2 6 * * *'    # 14:02 PH
+    - cron: '3 6 * * *'    # 14:03 PH
+    - cron: '5 6 * * *'    # 14:05 PH
+    - cron: '10 6 * * *'   # 14:10 PH
+
+    # 5:00 PM – 5:10 PM
+    - cron: '0 9 * * *'    # 17:00 PH
+    - cron: '2 9 * * *'    # 17:02 PH
+    - cron: '3 9 * * *'    # 17:03 PH
+    - cron: '5 9 * * *'    # 17:05 PH
+    - cron: '10 9 * * *'   # 17:10 PH
+
+    # 9:00 PM – 9:20 PM
+    - cron: '0 13 * * *'   # 21:00 PH
+    - cron: '5 13 * * *'   # 21:05 PH
+    - cron: '10 13 * * *'  # 21:10 PH
+    - cron: '15 13 * * *'  # 21:15 PH
+    - cron: '20 13 * * *'  # 21:20 PH
+
+    # 9:30 PM
+    - cron: '30 13 * * *'  # 21:30 PH
+
+    # 10:30 PM
+    - cron: '30 14 * * *'  # 22:30 PH
   workflow_dispatch:
 
 permissions:
