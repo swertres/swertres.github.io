@@ -1,0 +1,61 @@
+.result,
+.result-history {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+th {
+    background-color: #e22d30;
+    color: #fff;
+}
+
+table caption {
+  caption-side: bottom;
+}
+
+/* Table results in home */
+
+.table-home {
+  width: 100%;
+  table-layout: fixed; /* makes widths predictable */
+  border-collapse: collapse;
+}
+
+/* default (desktop) */
+.table-home th:nth-child(1),
+.table-home td:nth-child(1) {
+  width: 50%;
+}
+
+.table-home th:nth-child(2),
+.table-home td:nth-child(2) {
+  width: 50%;
+}
+
+/* mobile: adjust ratio */
+@media (max-width: 600px) {
+  .table-home th:nth-child(1),
+  .table-home td:nth-child(1) {
+    width: 55%; /* slightly wider Column 1 */
+  }
+
+  .table-home th:nth-child(2),
+  .table-home td:nth-child(2) {
+    width: 45%; /* slightly narrower Column 2 */
+  }
+}
+
+/* Lucky pick shortcode */
+
+#lucky-pick {
+  margin-bottom: 20px; /* adjust value as needed */
+}
+
+#numbers-row td {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  letter-spacing: 2px;
+}

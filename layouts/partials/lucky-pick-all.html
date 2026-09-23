@@ -1,0 +1,145 @@
+<h2 id="feeling-luckyr">Feeling Lucky?</h2>
+
+<p>We have this lucky pick random number generator that will select numbers for you. It's totally random and just for fun. Each time you use it, you'll get a new set of numbers.</p>
+
+<table id="lottery-table">
+  <thead>
+    <tr>
+      <th>Game</th>
+      <th>#1</th>
+      <th>#2</th>
+      <th>#3</th>
+      <th>#4</th>
+      <th>#5</th>
+      <th>#6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr data-game="ez2">
+      <td><strong>EZ2</strong></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr data-game="swertres">
+      <td><strong>Swertres</strong></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr data-game="4d">
+      <td><strong>4D</strong></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr data-game="6d">
+      <td><strong>6D</strong></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr data-game="642">
+      <td><strong>6/42</strong></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr data-game="645">
+      <td><strong>6/45</strong></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr data-game="649">
+      <td><strong>6/49</strong></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr data-game="655">
+      <td><strong>6/55</strong></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr data-game="658">
+      <td><strong>6/58</strong></td>
+      <td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+  </tbody>
+</table>
+
+<button id="lucky-pick">🎯 Lucky Pick (Generate All)</button>
+
+<script>
+  const lastResults = {}; // store previous results
+
+  function generateUniqueNumbers(count, min, max) {
+    const nums = [];
+    while (nums.length < count) {
+      const n = Math.floor(Math.random() * (max - min + 1)) + min;
+      if (!nums.includes(n)) nums.push(n);
+    }
+    return nums;
+  }
+
+  function generateNumbersForGame(game) {
+    if (game === 'ez2') {
+      return generateUniqueNumbers(2, 1, 31);
+    }
+    if (game === 'swertres') {
+      return Array.from({ length: 3 }, () => Math.floor(Math.random() * 10));
+    }
+    if (game === '4d') {
+      return Array.from({ length: 4 }, () => Math.floor(Math.random() * 10));
+    }
+    if (game === '6d') {
+      return Array.from({ length: 6 }, () => Math.floor(Math.random() * 10));
+    }
+
+    const maxMap = { '642': 42, '645': 45, '649': 49, '655': 55, '658': 58 };
+    const max = maxMap[game];
+    if (max) return generateUniqueNumbers(6, 1, max);
+    return [];
+  }
+
+  function formatWithLeadingZero(num) {
+    return num < 10 ? '0' + num : '' + num;
+  }
+
+  function generateDifferentNumbers(game) {
+    const prev = lastResults[game] || [];
+    let fresh = generateNumbersForGame(game);
+
+    // For ALL games: make sure each digit changes
+    const forceChangeGames = ['swertres', '4d', '6d', 'ez2', '642', '645', '649', '655', '658'];
+
+    if (forceChangeGames.includes(game)) {
+      for (let i = 0; i < fresh.length; i++) {
+        let attempts = 0;
+        while (fresh[i] === prev[i] && attempts < 50) {
+          if (['ez2', '642', '645', '649', '655', '658'].includes(game)) {
+            const maxMap = { 'ez2': 31, '642': 42, '645': 45, '649': 49, '655': 55, '658': 58 };
+            fresh[i] = Math.floor(Math.random() * maxMap[game]) + 1;
+            if (game !== 'ez2') {
+              // keep uniqueness for 6/x
+              while (fresh.filter((n, idx) => n === fresh[i] && idx !== i).length > 0) {
+                fresh[i] = Math.floor(Math.random() * maxMap[game]) + 1;
+              }
+            }
+          } else {
+            fresh[i] = Math.floor(Math.random() * 10);
+          }
+          attempts++;
+        }
+      }
+    }
+
+    lastResults[game] = fresh;
+    return fresh;
+  }
+
+  function populateAllNumbers() {
+    document.querySelectorAll('#lottery-table tbody tr').forEach(row => {
+      const game = row.getAttribute('data-game');
+      const numbers = generateDifferentNumbers(game);
+      const cells = row.querySelectorAll('td');
+      for (let i = 0; i < 6; i++) {
+        const cell = cells[i + 1];
+        if (i < numbers.length) {
+          cell.textContent = formatWithLeadingZero(numbers[i]);
+        } else {
+          cell.textContent = '';
+        }
+      }
+    });
+  }
+
+  populateAllNumbers();
+  document.getElementById('lucky-pick').addEventListener('click', populateAllNumbers);
+</script>

@@ -1,0 +1,91 @@
+{{- if .Site.Menus.main }}
+<nav class="menu">
+	<button class="menu__btn" aria-haspopup="true" aria-expanded="false" tabindex="0">
+		<span class="menu__btn-title" tabindex="-1">{{ T "menu_label" }}</span>
+	</button>
+	<ul class="menu__list">
+		{{- $currentNode := . }}
+		{{- range .Site.Menus.main }}
+		{{- if .Name }}
+		<li class="menu__item{{ if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} menu__item--active{{ end }}">
+			<a class="menu__link" href="{{ .URL }}">
+				{{ .Pre }}
+				<span class="menu__text">{{ .Name }}</span>
+				{{ .Post }}
+			</a>
+		</li>
+		{{- end }}
+		{{- end }}
+		<li class="menu__item">
+		{{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "ez2")) }}
+			<a class="menu__link" href="{{ .Permalink }}">
+				<span class="menu__text">EZ2</span>
+			</a>
+		{{- end }}
+		</li>
+		<li class="menu__item">
+		{{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "swertres")) }}
+			<a class="menu__link" href="{{ .Permalink }}">
+				<span class="menu__text">Swertres</span>
+			</a>
+		{{- end }}
+		</li>
+		<li class="menu__item">
+		{{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "4d")) }}
+			<a class="menu__link" href="{{ .Permalink }}">
+				<span class="menu__text">4D</span>
+			</a>
+		{{- end }}
+		</li>
+		<li class="menu__item">
+		{{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6d")) }}
+			<a class="menu__link" href="{{ .Permalink }}">
+				<span class="menu__text">6D</span>
+			</a>
+		{{- end }}
+		</li>
+		<li class="menu__item">
+		{{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-42")) }}
+			<a class="menu__link" href="{{ .Permalink }}">
+				<span class="menu__text">6/42</span>
+			</a>
+		{{- end }}
+		</li>
+		<li class="menu__item">
+		{{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-45")) }}
+			<a class="menu__link" href="{{ .Permalink }}">
+				<span class="menu__text">6/45</span>
+			</a>
+		{{- end }}
+		</li>
+		<li class="menu__item">
+		{{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-49")) }}
+			<a class="menu__link" href="{{ .Permalink }}">
+				<span class="menu__text">6/49</span>
+			</a>
+		{{- end }}
+		</li>
+		<li class="menu__item">
+		{{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-55")) }}
+			<a class="menu__link" href="{{ .Permalink }}">
+				<span class="menu__text">6/55</span>
+			</a>
+		{{- end }}
+		</li>
+		<li class="menu__item">
+		{{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-58")) }}
+			<a class="menu__link" href="{{ .Permalink }}">
+				<span class="menu__text">6/58</span>
+			</a>
+		{{- end }}
+		</li>
+		<li class="menu__item">
+			<a class="menu__link" href="/lucky-pick">
+				<span class="menu__text">🎯 LP</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+{{ else -}}
+<div class="divider"></div>
+{{- end }}

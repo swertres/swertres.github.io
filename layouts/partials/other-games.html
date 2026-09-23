@@ -1,0 +1,31 @@
+<h2 id="latest-results-for-all-lotto-games">Latest Results for All Lotto Games</h2>
+
+<ul>
+  {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "ez2")) }}
+    <li><a href="{{ .Permalink }}">2D EZ2 Lotto Result Today - <time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}T14:00:00">{{ .PublishDate.Format "January 2, 2006 (Monday)" }}</time></a></li>
+  {{ end }}
+  {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "swertres")) }}
+    <li><a href="{{ .Permalink }}">3D Swertres Lotto Result Today - <time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}T14:00:00">{{ .PublishDate.Format "January 2, 2006 (Monday)" }}</time></a></li>
+  {{ end }}
+  {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "4d")) }}
+    <li><a href="{{ .Permalink }}">4D Lotto Result Today - <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "January 2, 2006 (Monday)" }}</time></a></li>
+  {{ end }}
+  {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6d")) }}
+    <li><a href="{{ .Permalink }}">6D Lotto Result Today - <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "January 2, 2006 (Monday)" }}</time></a></li>
+  {{ end }}
+  {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-42")) }}
+    <li><a href="{{ .Permalink }}">6/42 Lotto Result Today - <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "January 2, 2006 (Monday)" }}</time></a></li>
+  {{ end }}
+  {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-45")) }}
+    <li><a href="{{ .Permalink }}">6/45 Mega Lotto Result Today - <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "January 2, 2006 (Monday)" }}</time></a></li>
+  {{ end }}
+  {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-49")) }}
+    <li><a href="{{ .Permalink }}">6/49 Super Lotto Result Today - <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "January 2, 2006 (Monday)" }}</time></a></li>
+  {{ end }}
+  {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-55")) }}
+    <li><a href="{{ .Permalink }}">6/55 Grand Lotto Result Today - <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "January 2, 2006 (Monday)" }}</time></a></li>
+  {{ end }}
+  {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-58")) }}
+    <li><a href="{{ .Permalink }}">6/58 Ultra Lotto Result Today - <time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "January 2, 2006 (Monday)" }}</time></a></li>
+  {{ end }}
+</ul>

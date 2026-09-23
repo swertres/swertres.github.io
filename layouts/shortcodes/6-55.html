@@ -1,0 +1,45 @@
+{{ $result := .Page.Params.result }}
+
+<p>
+  <time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}">{{ dateFormat "January 2, 2006 Monday" $.Page.Date }}</time> — The Philippine Charity Sweepstakes Office (PCSO) is announcing the official 6/55 result today.
+</p>
+
+<table>
+  <caption class="table-caption">
+    6/55 result history <time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}">{{ dateFormat "January 2, 2006 Monday" $.Page.Date }}</time>.
+  </caption>
+  <thead>
+    <tr>
+      <th>Draw Date</th>
+      <th>WINNING COMBINATION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}">{{ dateFormat "January 2, 2006" $.Page.Date }}</time></td>
+      <td class="result">{{ $result }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="6-55-result-history-summary">6/55 Result History Summary</h2>
+
+<table>
+  <caption class="table-caption">
+    30 day 6/55 result history summary.
+  </caption>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th>WINNING COMBINATION</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range where .Site.RegularPages "Params.tags" "intersect" (slice "6-55") }}
+    <tr>
+      <td><a href="{{ .Permalink }}"><time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time></a></td>
+      <td class="result-history">{{ .Params.result }}</td>
+    </tr>
+    {{ end }}
+  </tbody>
+</table>

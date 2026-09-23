@@ -1,0 +1,55 @@
+<h3 id="try-our-6-42-number-generator">Try our 6/42 Number Generator</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>#1</th>
+      <th>#2</th>
+      <th>#3</th>
+      <th>#4</th>
+      <th>#5</th>
+      <th>#6</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="numbers-row">
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<button id="lucky-pick">🎯 Lucky Pick</button>
+
+<script>
+  function generateUniqueRandomNumbers() {
+    const numbers = [];
+    while (numbers.length < 6) {
+      const num = Math.floor(Math.random() * 42) + 1;
+      if (!numbers.includes(num)) {
+        numbers.push(num);
+      }
+    }
+    return numbers;
+  }
+
+  function formatWithLeadingZero(num) {
+    return num < 10 ? '0' + num : num.toString();
+  }
+
+  function populateNumbers() {
+    const numbers = generateUniqueRandomNumbers();
+    const cells = document.querySelectorAll('#numbers-row td');
+    cells.forEach((cell, index) => {
+      cell.textContent = formatWithLeadingZero(numbers[index]);
+    });
+  }
+
+  document.getElementById('lucky-pick').addEventListener('click', populateNumbers);
+  
+  // Generate numbers when page loads
+  populateNumbers();
+</script>

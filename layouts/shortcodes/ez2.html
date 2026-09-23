@@ -1,0 +1,63 @@
+{{ $twoPm := .Page.Params.twoPm }}
+{{ $fivePm := .Page.Params.fivePm }}
+{{ $ninePm := .Page.Params.ninePm }}
+
+<p>
+  <time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}">{{ dateFormat "January 2, 2006 Monday" $.Page.Date }}</time> — The Philippine Charity Sweepstakes Office (PCSO) is announcing the official EZ2 result today.
+</p>
+
+<table>
+  <caption class="table-caption">
+    EZ2 result history <time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}">{{ dateFormat "January 2, 2006 Monday" $.Page.Date }}</time>.
+  </caption>
+  <thead>
+    <tr>
+      <th><time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}">{{ dateFormat "January 2, 2006" $.Page.Date }}</time></th>
+      <th>WINNING COMBINATION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}T14:00:00"></time>2pm</time></td>
+      <td class="result">{{ $twoPm }}</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}T17:00:00"></time>5pm</time></td>
+      <td class="result">{{ $fivePm }}</td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}T21:00:00">9pm</time></td>
+      <td class="result">{{ $ninePm }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="ez2-result-history-summary">EZ2 Result History Summary</h2>
+
+<table>
+  <caption class="table-caption">
+    30 day EZ2 result history summary.
+  </caption>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th><time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}T14:00:00">2pm</time></th>
+      <th><time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}T17:00:00">5pm</time></th>
+      <th><time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}T21:00:00">9pm</time></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{ range where .Site.RegularPages "Params.tags" "intersect" (slice "ez2") }}
+    <tr>
+      <td><a href="{{ .Permalink }}"><time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time></a></td>
+      <td class="result-history">{{ .Params.twoPm }}</td>
+      <td class="result-history">{{ .Params.fivePm }}</td>
+      <td class="result-history">{{ .Params.ninePm }}</td>
+    </tr>
+    {{ end }}
+  </tbody>
+</table>

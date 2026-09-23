@@ -1,0 +1,113 @@
+<h1 id="pcso-lotto-results-today">PCSO Lotto Results Today {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "ez2")) }}<time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "January 2, 2006" }}</time>{{ end }}</h2>
+
+<table class="table-home">
+  <caption class="table-caption">
+    Lotto result today summary <time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}">{{ dateFormat "January 2, 2006 Monday" $.Page.Date }}</time>.
+  </caption>
+  <thead>
+    <tr>
+      <th>Draw Date</th>
+      <th>WINNING COMBINATION</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- EZ2 -->
+    {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "ez2")) }}
+    <tr>
+      <td>2D <a href="{{ .Permalink }}"><time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}T14:00:00">{{ .PublishDate.Format "Jan 2, 2006" }} 2PM</time></a></td>
+      <td>{{ .Params.twoPm }}</td>
+    </tr>
+    {{ end }}
+    {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "ez2")) }}
+    <tr>
+      <td>2D <a href="{{ .Permalink }}"><time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}T17:00:00">{{ .PublishDate.Format "Jan 2, 2006" }} 5PM</time></a></td>
+      <td>{{ .Params.fivePm }}</td>
+    </tr>
+    {{ end }}
+    {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "ez2")) }}
+    <tr>
+      <td>2D <a href="{{ .Permalink }}"><time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}T21:00:00">{{ .PublishDate.Format "Jan 2, 2006" }} 9PM</time></a></td>
+      <td>{{ .Params.ninePm }}</td>
+    </tr>
+    {{ end }}
+
+    <!-- SWERTRES -->
+    {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "swertres")) }}
+    <tr>
+      <td>3D <a href="{{ .Permalink }}"><time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}T14:00:00">{{ .PublishDate.Format "Jan 2, 2006" }} 2PM</time></a></td>
+      <td>{{ .Params.twoPm }}</td>
+    </tr>
+    {{ end }}
+    {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "swertres")) }}
+    <tr>
+      <td>3D <a href="{{ .Permalink }}"><time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}T17:00:00">{{ .PublishDate.Format "Jan 2, 2006" }} 5PM</time></a></td>
+      <td>{{ .Params.fivePm }}</td>
+    </tr>
+    {{ end }}
+    {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "swertres")) }}
+    <tr>
+      <td>3D <a href="{{ .Permalink }}"><time datetime="{{ dateFormat "2006-01-02" $.Page.Date }}T21:00:00">{{ .PublishDate.Format "Jan 2, 2006" }} 9PM</time></a></td>
+      <td>{{ .Params.ninePm }}</td>
+    </tr>
+    {{ end }}
+
+    <!-- 4D -->
+    {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "4d")) }}
+    <tr>
+      <td>4D <a href="{{ .Permalink }}"><time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time></a></td>
+      <td>{{ .Params.result }}</td>
+    </tr>
+    {{ end }}
+
+    <!-- 6D -->
+    {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6d")) }}
+    <tr>
+      <td>6D <a href="{{ .Permalink }}"><time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time></a></td>
+      <td>{{ .Params.result }}</td>
+    </tr>
+    {{ end }}
+
+    <!-- 6/42 -->
+    {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-42")) }}
+    <tr>
+      <td>6/42 <a href="{{ .Permalink }}"><time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time></a></td>
+      <td>{{ .Params.result }}</td>
+    </tr>
+    {{ end }}
+
+    <!-- 6/45 -->
+    {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-45")) }}
+    <tr>
+      <td>6/45 <a href="{{ .Permalink }}"><time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time></a></td>
+      <td>{{ .Params.result }}</td>
+    </tr>
+    {{ end }}
+
+    <!-- 6/49 -->
+    {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-49")) }}
+    <tr>
+      <td>6/49 <a href="{{ .Permalink }}"><time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time></a></td>
+      <td>{{ .Params.result }}</td>
+    </tr>
+    {{ end }}
+
+    <!-- 6/55 -->
+    {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-55")) }}
+    <tr>
+      <td>6/55 <a href="{{ .Permalink }}"><time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time></a></td>
+      <td>{{ .Params.result }}</td>
+    </tr>
+    {{ end }}
+
+    <!-- 6/58 -->
+    {{ range first 1 (where .Site.RegularPages "Params.tags" "intersect" (slice "6-58")) }}
+    <tr>
+      <td>6/58 <a href="{{ .Permalink }}"><time datetime="{{ .PublishDate.Format "2006-01-02" }}">{{ .PublishDate.Format "Jan 2, 2006" }}</time></a></td>
+      <td>{{ .Params.result }}</td>
+    </tr>
+    {{ end }}
+
+  </tbody>
+</table>
+
+<h2 id="latest-pcso-lotto-draw-results-today">Latest PCSO Lotto Draw Results Today</h2>

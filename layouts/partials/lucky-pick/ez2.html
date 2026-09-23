@@ -1,0 +1,47 @@
+<h3 id="try-our-ez2-number-generator">Try our EZ2 Number Generator</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>#1</th>
+      <th>#2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr id="numbers-row">
+      <td></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<button id="lucky-pick">🎯 Lucky Pick</button>
+
+<script>
+  function generateUniqueRandomNumbers() {
+    const numbers = [];
+    while (numbers.length < 2) {
+      const num = Math.floor(Math.random() * 31) + 1; // 1 to 31
+      if (!numbers.includes(num)) {
+        numbers.push(num);
+      }
+    }
+    return numbers;
+  }
+
+  function formatWithLeadingZero(num) {
+    return num < 10 ? '0' + num : num.toString();
+  }
+
+  function populateNumbers() {
+    const numbers = generateUniqueRandomNumbers();
+    const cells = document.querySelectorAll('#numbers-row td');
+    cells.forEach((cell, index) => {
+      cell.textContent = formatWithLeadingZero(numbers[index]);
+    });
+  }
+
+  document.getElementById('lucky-pick').addEventListener('click', populateNumbers);
+  
+  // Generate numbers when page loads
+  populateNumbers();
+</script>
