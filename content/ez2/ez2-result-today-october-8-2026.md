@@ -1,7 +1,7 @@
 ---
 title: "EZ2 Result Today October, 8 2026"
-date: 2026-10-08T13:00:09+08:00
-expiryDate: 2026-11-07T13:00:09+08:00
+date: 2026-10-08T14:00:09+08:00
+expiryDate: 2026-11-07T14:00:09+08:00
 draft: false
 thumbnail: "img/ez2-pcso-lotto.png"
 tags:

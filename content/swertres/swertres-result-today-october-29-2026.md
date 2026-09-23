@@ -1,7 +1,7 @@
 ---
 title: "SWERTRES Result Today October, 29 2026"
-date: 2026-10-29T13:00:08+08:00
-expiryDate: 2026-11-28T13:00:08+08:00
+date: 2026-10-29T14:00:08+08:00
+expiryDate: 2026-11-28T14:00:08+08:00
 draft: false
 thumbnail: "img/swertres-pcso-lotto.png"
 tags:

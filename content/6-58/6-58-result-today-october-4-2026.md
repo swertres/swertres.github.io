@@ -1,7 +1,7 @@
 ---
 title: "6/58 Result Today October, 4 2026"
-date: 2026-10-04T13:00:01+08:00
-expiryDate: 2026-11-03T13:00:01+08:00
+date: 2026-10-04T21:00:01+08:00
+expiryDate: 2026-11-03T21:00:01+08:00
 draft: false
 thumbnail: "img/6-58-pcso-lotto.png"
 tags:

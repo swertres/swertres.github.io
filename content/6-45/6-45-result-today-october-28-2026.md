@@ -1,7 +1,7 @@
 ---
 title: "6/45 Result Today October, 28 2026"
-date: 2026-10-28T13:00:04+08:00
-expiryDate: 2026-11-27T13:00:04+08:00
+date: 2026-10-28T21:00:04+08:00
+expiryDate: 2026-11-27T21:00:04+08:00
 draft: false
 thumbnail: "img/6-45-pcso-lotto.png"
 tags:

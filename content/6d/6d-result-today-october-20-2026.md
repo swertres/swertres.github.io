@@ -1,7 +1,7 @@
 ---
 title: "6D Result Today October, 20 2026"
-date: 2026-10-20T13:00:06+08:00
-expiryDate: 2026-11-19T13:00:06+08:00
+date: 2026-10-20T21:00:06+08:00
+expiryDate: 2026-11-19T21:00:06+08:00
 draft: false
 thumbnail: "img/6d-pcso-lotto.png"
 tags:
